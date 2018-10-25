@@ -1,5 +1,6 @@
 # Display an anagram of a provided word
 import random
+import sys
 
 
 # TODO: Generate *real* anagrams
@@ -10,6 +11,4 @@ def generator(word):
 
 
 if __name__ == '__main__':
-    import sys
-
     print(generator(sys.argv[1]))

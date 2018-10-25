@@ -1,5 +1,6 @@
 # Display all possible endings of the ending of a provided word
 import dictionary_words
+import sys
 
 
 def fuzzy_startswith(string1, string2):
@@ -17,7 +18,5 @@ def autocomplete(word):
 
 
 if __name__ == '__main__':
-    import sys
-
     word = sys.argv[1]
     print('\n'.join(autocomplete(word)))

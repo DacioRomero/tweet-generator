@@ -1,5 +1,6 @@
 # Display a shuffled version of a provided list without mutation
 import random
+import sys
 
 
 def randomize_list(input_list):
@@ -9,7 +10,5 @@ def randomize_list(input_list):
 
 
 if __name__ == '__main__':
-    import sys
-
     input_list = sys.argv[1:]
     print(' '.join(randomize_list(input_list)))

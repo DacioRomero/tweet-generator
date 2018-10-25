@@ -1,5 +1,6 @@
 # Display a random psuedo sentence
 import random
+import sys
 
 
 def get_dictionary():
@@ -13,7 +14,5 @@ def random_sentence(dictionary, num_words):
 
 
 if __name__ == '__main__':
-    import sys
-
     num_words = int(sys.argv[1])
     print(random_sentence(get_dictionary(), num_words))
