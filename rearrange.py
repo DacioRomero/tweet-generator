@@ -1,3 +1,4 @@
+# Display a shuffled version of a provided list without mutation
 import sys
 import random
 

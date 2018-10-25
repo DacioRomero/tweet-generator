@@ -1,4 +1,4 @@
-import sys
+# Display a random psuedo sentence
 import random
 
 
@@ -9,9 +9,11 @@ def get_dictionary():
 
 
 def random_sentence(dictionary, num_words):
-    return ' '.join(random.choice(dictionary) for _ in range(length))
+    return ' '.join(random.choice(dictionary) for _ in range(num_words))
 
 
 if __name__ == '__main__':
+    import sys
+
     num_words = int(sys.argv[1])
     print(random_sentence(get_dictionary(), num_words))
