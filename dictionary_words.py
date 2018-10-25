@@ -8,13 +8,10 @@ def get_dictionary():
     return raw_file.splitlines()
 
 
-def random_sentence(dictionary, length):
+def random_sentence(dictionary, num_words):
     return ' '.join(random.choice(dictionary) for _ in range(length))
 
 
-def main():
-    print(random_sentence(get_dictionary(), int(sys.argv[1])))
-
-
 if __name__ == '__main__':
-    main()
+    num_words = int(sys.argv[1])
+    print(random_sentence(get_dictionary(), num_words))
