@@ -1,7 +1,4 @@
 # Display the reverse a word or sentence
-import sys
-
-
 def reverse_word(word):
     return word[::-1]
 
@@ -11,6 +8,7 @@ def reverse_sentence(sentence):
 
 
 if __name__ == '__main__':
+    import sys
     if sys.argv[1] == 'word':
         word = sys.argv[2]
         print(reverse_word(word))

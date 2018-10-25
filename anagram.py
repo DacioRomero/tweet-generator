@@ -11,4 +11,5 @@ def generator(word):
 
 if __name__ == '__main__':
     import sys
+
     print(generator(sys.argv[1]))

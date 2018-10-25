@@ -1,5 +1,4 @@
 # Display all possible endings of the ending of a provided word
-import sys
 import dictionary_words
 
 
@@ -12,5 +11,7 @@ def autocomplete(string):
 
 
 if __name__ == '__main__':
+    import sys
+
     words = sys.argv[1]
     print('\n'.join(autocomplete(word)))
