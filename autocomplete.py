@@ -2,10 +2,16 @@
 import dictionary_words
 
 
-def autocomplete(string):
+def fuzzy_startswith(string1, string2):
+    '''Check if string1 starts with string2 regardless of case'''
+    return string1.upper().startswith(string2.upper())
+
+
+def autocomplete(word):
+    '''Return a list of words that finish the provided word'''
     dictionary = dictionary_words.get_dictionary()
-    possibilities = [word for word in dictionary
-                     if word.lower().startswith(string.lower())]
+    possibilities = list(filter(lambda w: fuzzy_startswith(w, word),
+                                dictionary))
 
     return possibilities
 
