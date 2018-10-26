@@ -4,6 +4,14 @@ import sys
 
 
 def randomize_list(input_list):
+    '''Rearrange a list without mutation.
+
+    Args:
+        input_list: A list to be reversed.
+
+    Returns:
+        The randomly rearranged list.
+    '''
     output_list = input_list[:]
     random.shuffle(output_list)
     return output_list

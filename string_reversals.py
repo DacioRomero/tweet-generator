@@ -3,10 +3,25 @@ import sys
 
 
 def reverse_word(word):
+    '''Reverses a word.
+
+    Args:
+        word: The string representing a words.
+
+    Returns:
+        The variable word reversed.
+    '''
     return word[::-1]
 
 
 def reverse_sentence(sentence):
+    '''Reverses a sentence's words.
+
+    Args:
+        sentence: A string of a sentence.
+    Returns:
+        A new sentence with the words of the setence reversed.``
+    '''
     return ' '.join(sentence.split(' ')[::-1])
 
 
