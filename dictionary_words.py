@@ -25,7 +25,7 @@ def random_sentence(dictionary, num_words):
         num_words: An int of the number of words in the sentence.
 
     Returns:
-        A sentence from words in dictionary with num_words number of words.
+        A "sentence" from words in dictionary with num_words number of words.
     '''
     return ' '.join(random.choice(dictionary) for _ in range(num_words))
 

@@ -25,9 +25,11 @@ def autocomplete(word):
     Returns:
         A list of the different full representations of the word.
     '''
-    dictionary = dictionary_words.get_dictionary()
-    possibilities = list(filter(lambda w: fuzzy_startswith(w, word),
-                                dictionary))
+    possibilities = []
+
+    for dict_word in dictionary_words.get_dictionary():
+        if fuzzy_startswith(dict_word, word):
+            possibilities.append(dict_word)
 
     return possibilities
 
