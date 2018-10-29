@@ -14,6 +14,7 @@ def histogram(source_text):
         A dictonary of unique words with values of the number of occurences.
     '''
     words = [word.lower() for word in word_re.findall(source_text)]
+    histogram = {}
 
     for word in words:
         if word in histogram:
