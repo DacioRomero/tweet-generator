@@ -1,4 +1,4 @@
-# Display the reverse a word or sentence
+'''Display the reverse a word or sentence'''
 import sys
 
 
@@ -31,5 +31,5 @@ if __name__ == '__main__':
         print(reverse_word(word))
 
     elif sys.argv[1] == 'sentence':
-        sentence = ' '.join(argv[2:])
+        sentence = ' '.join(sys.argv[2:])
         print(reverse_sentence(sentence))

@@ -1,17 +1,17 @@
-# Display all possible endings of the ending of a provided word
-import dictionary_words
+'''Display all possible endings of the ending of a provided word'''
 import sys
+import dictionary_words
 
 
 def fuzzy_startswith(string1, string2):
     '''Checks if one string starts with another regardless of case.
 
     Args:
-        string1: A string which will be checked.
-        string2: A string that is checked if string1 starts with.
+        string1: A string whose beginning will be checked.
+        string2: A string that is checked if is the begining of string1.
 
     Returns:
-        True if string1 starts with string2 otherwise False.
+        True if string1 starts with string2 regardlesss of case else False.
     '''
     return string1.upper().startswith(string2.upper())
 
@@ -20,10 +20,10 @@ def autocomplete(word):
     '''Creates list of words that finish the provided word.
 
     Args:
-        word: A string representing the beginning of a words.
+        word: A string representing the beginning of a word.
 
     Returns:
-        A list of the different full representations of the word.
+        A list of the different words that complete word as strings.
     '''
     possibilities = []
 

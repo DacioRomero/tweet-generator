@@ -1,4 +1,4 @@
-# Display a shuffled version of a provided list without mutation
+'''Display a shuffled version of a provided list without mutation'''
 import random
 import sys
 

@@ -1,6 +1,6 @@
-# Display an anagram of a provided word
-import dictionary_words
+'''Display an anagram of a provided word'''
 import sys
+import dictionary_words
 
 
 def generator(word):
@@ -22,11 +22,11 @@ def generator(word):
 
 
 def is_anagram(word1, word2):
-    '''Checks if one word is an anagram of the other.
+    '''Checks if two words are anagrams of each other.
 
     Args:
         word1: A word.
-        word2: The checked.
+        word2: A word.
 
     Returns:
         True if word1 and word2 are anagrams of each other else False.

@@ -1,4 +1,4 @@
-# Display a random psuedo sentence
+'''Display a random psuedo sentence'''
 import random
 import sys
 
@@ -11,8 +11,8 @@ def get_dictionary():
     Returns:
         A list of words from the OSX dictionary
     '''
-    with open('/usr/share/dict/words') as f:
-        raw_file = f.read()
+    with open('/usr/share/dict/words') as file:
+        raw_file = file.read()
     return raw_file.splitlines()
 
 
