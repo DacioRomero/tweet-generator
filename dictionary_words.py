@@ -11,6 +11,7 @@ def get_dictionary():
     Returns:
         A list of words from the OSX dictionary
     '''
+    # TODO: Read from common dictionary for Windows support
     with open('/usr/share/dict/words') as file:
         raw_file = file.read()
     return raw_file.splitlines()
@@ -25,7 +26,8 @@ def random_sentence(dictionary, num_words):
         num_words: An int of the number of words in the sentence.
 
     Returns:
-        A "sentence" from words in dictionary with num_words number of words.
+        A "sentence" from words in dictionary with num_words number of words
+        represented as a string.
     '''
     return ' '.join(random.choice(dictionary) for _ in range(num_words))
 
