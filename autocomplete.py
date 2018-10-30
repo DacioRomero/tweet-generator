@@ -1,26 +1,26 @@
-'''Display all possible endings of the ending of a provided word'''
+'''Displays all possible endings of the ending of a provided word'''
 import sys
 import dictionary_words
 
 
-def fuzzy_startswith(string1, string2):
+def fuzzy_startswith(string, prefix):
     '''Checks if one string starts with another regardless of case.
 
     Args:
-        string1: A string whose beginning will be checked.
-        string2: A string that is checked if is the begining of string1.
+        string: A string whose beginning will be checked.
+        prefix: A string that used for checking.
 
     Returns:
         True if string1 starts with string2 regardlesss of case else False.
     '''
-    return string1.upper().startswith(string2.upper())
+    return string.upper().startswith(prefix.upper())
 
 
-def autocomplete(word):
+def autocomplete(part):
     '''Creates list of words that finish the provided word.
 
     Args:
-        word: A string representing the beginning of a word.
+        part: A string representing the beginning of a word.
 
     Returns:
         A list of the different words that complete word as strings.
@@ -28,12 +28,16 @@ def autocomplete(word):
     possibilities = []
 
     for dict_word in dictionary_words.get_dictionary():
-        if fuzzy_startswith(dict_word, word):
+        if fuzzy_startswith(dict_word, part):
             possibilities.append(dict_word)
 
     return possibilities
 
 
+def main():
+    '''Tests autocomplete().'''
+    print('\n'.join(autocomplete(part=sys.argv[1])))
+
+
 if __name__ == '__main__':
-    word = sys.argv[1]
-    print('\n'.join(autocomplete(word)))
+    main()

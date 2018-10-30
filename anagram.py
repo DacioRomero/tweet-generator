@@ -1,4 +1,4 @@
-'''Display an anagram of a provided word'''
+'''Displays an anagram of a provided word.'''
 import sys
 import dictionary_words
 
@@ -26,7 +26,7 @@ def is_anagram(word1, word2):
 
     Args:
         word1: A word.
-        word2: A word.
+        word2: Another word.
 
     Returns:
         True if word1 and word2 are anagrams of each other else False.
@@ -37,5 +37,10 @@ def is_anagram(word1, word2):
     return word1_up != word2_up and sorted(word1_up) == sorted(word2_up)
 
 
+def main():
+    '''Tests generator().'''
+    print(' '.join(generator(word=sys.argv[1])))
+
+
 if __name__ == '__main__':
-    print(' '.join(generator(sys.argv[1])))
+    main()

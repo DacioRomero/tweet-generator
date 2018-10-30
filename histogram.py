@@ -1,20 +1,21 @@
-'''Generate a histogram of the frequency of words in a text'''
+'''Generates a histogram of the frequency of words in a text.'''
 import re
 
 # Matches latin-esque words
 WORD_RE = re.compile(r'[a-zA-Z]+(?:\'[a-z]+)?')
 
 
-def histogram(source_text):
+def generate_histogram_dict(text):
     '''Generates a histogram of a string.
 
     Args:
-        source_text: The string to generate from.
+        text: The string to generate from.
 
     Returns:
-        A dictonary of unique words with values of the number of occurences.
+        A dictionary of unique words each with a value of their occurences.
     '''
-    words = get_words(source_text)
+    words = get_words(text)
+
     histogram = {}
 
     for word in words:
@@ -26,19 +27,20 @@ def histogram(source_text):
     return histogram
 
 
-def histogram_ll(source_text):
+def generate_histogram_ll(text):
     '''Generates a histogram of a string.
 
     Args:
-        source_text: The string to generate from.
+        text: The string to generate from.
 
     Returns:
-        A list of lists of unique words with values of the number of occurences.
+        A list of lists in the format [[word, occurences], ...].
     '''
-    words = get_words(source_text)
+    words = get_words(text)
     words.sort()
 
     histogram = []
+
     for index, word in enumerate(words):
         if index > 0 and word == words[index - 1]:
             histogram[-1][1] += 1
@@ -47,17 +49,48 @@ def histogram_ll(source_text):
 
     return histogram
 
-def get_words(source_text):
-    '''Get the words in a text.
+
+def generate_histogram_lt(text):
+    '''Generates a histogram of a string.
 
     Args:
-        source_text: The string to parse.
+        text: The string to generate from.
+
+    Returns:
+        A list of tuples in the format [(word, occurences), ...].
+    '''
+    words = get_words(text)
+    words.sort()
+
+    histogram = []
+    count = 1
+
+    for index, word in enumerate(words):
+        if index == 0:
+            continue
+
+        word_prev = words[index - 1]
+
+        if word == word_prev:
+            count += 1
+        else:
+            histogram.append((word_prev, count))
+            count = 1
+
+    return histogram
+
+
+def get_words(text):
+    '''Gets the words in a text.
+
+    Args:
+        text: The string to parse.
 
     Returns:
         A list of strings of the words in a text.
     '''
     # Find all words using regex, make them lowercase, and put them in a list
-    return [word.lower() for word in WORD_RE.findall(source_text)]
+    return [word.lower() for word in WORD_RE.findall(text)]
 
 
 def unique_words(histogram):
@@ -72,12 +105,17 @@ def unique_words(histogram):
     return len(histogram)
 
 
-if __name__ == '__main__':
+def main():
+    '''Tests generate_histogram_dict() and unique_words().'''
     with open('./texts/test.txt') as file:
-        file_contents = file.read()
+        my_text = file.read()
 
-    histogram = histogram_ll(file_contents)
-    # unique_words = unique_words(histogram)
+    my_histogram = generate_histogram_dict(my_text)
+    my_unique_words = unique_words(my_histogram)
 
-    print(histogram)
-    # print(unique_words)
+    print(my_histogram)
+    print(my_unique_words)
+
+
+if __name__ == '__main__':
+    main()

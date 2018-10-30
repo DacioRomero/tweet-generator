@@ -1,4 +1,4 @@
-'''Display the reverse a word or sentence'''
+'''Displays the reverse a word or sentence.'''
 import sys
 
 
@@ -25,11 +25,13 @@ def reverse_sentence(sentence):
     return ' '.join(sentence.split(' ')[::-1])
 
 
-if __name__ == '__main__':
+def main():
+    '''Tests reverse_word() or reverse_sentence().'''
     if sys.argv[1] == 'word':
-        word = sys.argv[2]
-        print(reverse_word(word))
+        print(reverse_word(word=sys.argv[2]))
 
     elif sys.argv[1] == 'sentence':
-        sentence = ' '.join(sys.argv[2:])
-        print(reverse_sentence(sentence))
+        print(reverse_sentence(sentence=' '.join(sys.argv[2:])))
+
+if __name__ == '__main__':
+    main()
