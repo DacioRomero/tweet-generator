@@ -1,6 +1,7 @@
 '''Generate a histogram of the frequency of words in a text'''
 import re
 
+# Matches latin-esque words
 WORD_RE = re.compile(r'[a-zA-Z]+')
 
 
@@ -13,6 +14,7 @@ def histogram(source_text):
     Returns:
         A dictonary of unique words with values of the number of occurences.
     '''
+    # Find all words, make them lowercase, and put them in a list
     words = [word.lower() for word in WORD_RE.findall(source_text)]
     histogram = {}
 
@@ -38,7 +40,7 @@ def unique_words(histogram):
 
 
 if __name__ == '__main__':
-    with open('test.txt') as file:
+    with open('./texts/test.txt') as file:
         file_contents = file.read()
 
     histogram = histogram(file_contents)
