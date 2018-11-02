@@ -5,19 +5,19 @@ import re
 WORD_RE = re.compile(r'[a-zA-Z]+(?:\'[a-z]+)?')
 
 
-def generate_histogram_dict(text):
+def generate_histogram_dict(seq):
     '''Generates a histogram of a string.
 
     Args:
-        text: The string to generate from.
+        seq: An iterable or string to generate from.
 
     Returns:
         A dictionary of unique words each with a value of their occurences.
     '''
-    if isinstance(text, str):
-        words = get_words(text)
+    if isinstance(seq, str):
+        words = get_words(seq)
     else:
-        words = text
+        words = seq
 
     histogram = {}
 
@@ -30,16 +30,20 @@ def generate_histogram_dict(text):
     return histogram
 
 
-def generate_histogram_ll(text):
+def generate_histogram_ll(seq):
     '''Generates a histogram of a string.
 
     Args:
-        text: The string to generate from.
+        seq: An iterable or string to generate from.
 
     Returns:
         A list of lists in the format [[word, occurences], ...].
     '''
-    words = get_words(text)
+    if isinstance(seq, str):
+        words = get_words(seq)
+    else:
+        words = seq
+
     words.sort()
 
     histogram = []
@@ -53,16 +57,20 @@ def generate_histogram_ll(text):
     return histogram
 
 
-def generate_histogram_lt(text):
+def generate_histogram_lt(seq):
     '''Generates a histogram of a string.
 
     Args:
-        text: The string to generate from.
+        seq: An iterable or string to generate from.
 
     Returns:
         A list of tuples in the format [(word, occurences), ...].
     '''
-    words = get_words(text)
+    if isinstance(seq, str):
+        words = get_words(seq)
+    else:
+        words = seq
+
     words.sort()
 
     histogram = []
