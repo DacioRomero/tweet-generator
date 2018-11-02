@@ -14,7 +14,10 @@ def generate_histogram_dict(text):
     Returns:
         A dictionary of unique words each with a value of their occurences.
     '''
-    words = get_words(text)
+    if isinstance(text, str):
+        words = get_words(text)
+    else:
+        words = text
 
     histogram = {}
 
