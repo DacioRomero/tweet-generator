@@ -110,7 +110,7 @@ def convert_weights(weights):
     return cum_weights
 
 def main():
-    '''Tests random_choice().'''
+    '''Tests histogram_samples().'''
     my_histogram = histogram.generate_histogram_dict(' '.join(sys.argv[1:]))
     samples = histogram_samples(my_histogram, k=100000)
     print(histogram.generate_histogram_dict(samples))
