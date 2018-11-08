@@ -1,7 +1,6 @@
 from flask import Flask
 import sample
 import histogram
-import os
 
 app = Flask(__name__)
 
